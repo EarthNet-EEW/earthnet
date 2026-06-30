@@ -12,12 +12,19 @@
 > - `node`: **dual-stack** — `POST /signals` accepts a `Signal`; a `seismic.pick.v1` Signal is
 >   normalized into the *same* fusion pipeline as `/observations` (consensus unchanged); other
 >   modalities are accepted (research plane). `POST /observations` (v0.1) still works.
-> - **Cross-language verified end-to-end:** a Signal built + signed in **Python** → live Rust node
->   `/signals` → 202 + fired a real ConfirmedEvent (byte-determinism holds).
+> - `adapters`: the 284-station network emits **Signals by default** (`EARTHNET_WIRE=v1` falls back
+>   to Observations). Cross-language byte-determinism verified live (Python Signal → Rust node).
+> - `ConfirmedEvent` v0.2 **`tier`** (RESEARCH/PROVISIONAL/ALERT) + **`NodeAttestation`** carrier:
+>   OFFICIAL→ALERT, single-node CONSENSUS→PROVISIONAL; `tier` is signed, attestations are appended
+>   after signing and **excluded** from the signature (so PROVISIONAL→ALERT upgrades don't break it).
+>   Node persists `tier`; relay upgraded to re-verify tier-bearing events. **Verified live**:
+>   OFFICIAL→tier=ALERT, CONSENSUS→tier=PROVISIONAL, relay forwards both.
 >
-> **Not yet:** producers emitting Signals by default (adapters/mobile still emit v0.1 under
-> dual-stack); the schema **registry** (schema_id is a fixed constant for now); `ConfirmedEvent`
-> v0.2 (`tier` + `NodeAttestation`); wiring `PrivacyLevel` into `Location`.
+> **Not yet:** the M-of-N **attestation flow** itself (the carrier + the provisional→alert *upgrade*
+> mechanics exist; producing/collecting real co-signatures is the next slice); mobile **rendering**
+> of `tier` (Dart preserves unknown fields so verification still holds, but the UI doesn't yet
+> distinguish provisional vs alert); the schema **registry** (schema_id is a fixed constant); wiring
+> `PrivacyLevel` into `Location`.
 
 ## 1. Why
 
