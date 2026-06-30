@@ -14,6 +14,11 @@ EarthNet is a **hybrid** network: it fuses **official public seismograph feeds**
 distributed network of **smartphones** (each phone = sensor + client). **No mandatory
 central server** — the network outlives its creators.
 
+> 🧭 **Where this is going:** EEW is the flagship app, not the end goal. EarthNet aims to be an
+> **open platform for Planetary Intelligence** — heterogeneous sensors + distributed AI for
+> geophysical **discovery**. Read the **[Vision](VISION.md)** and the
+> **[Architecture Review & 5-year roadmap](docs/ARCHITECTURE-REVIEW.md)**.
+
 ---
 
 ## How it works
