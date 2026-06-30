@@ -88,7 +88,7 @@ Built in this order — `earthnet-protocol` is the spine everything depends on:
 **Stack:** Rust (core/node/relay) · Flutter+Dart (app) · Python+ObsPy (adapters) · Next.js
 (dashboard) · PostgreSQL+PostGIS+TimescaleDB · Protobuf+Ed25519 · SeedLink/FDSN · Docker.
 
-See [`DESIGN.md`](DESIGN.md) for the full architecture and [`PROTOCOL-v0.1-DRAFT.md`](PROTOCOL-v0.1-DRAFT.md) for the wire format.
+See [`DESIGN.md`](DESIGN.md) for the full architecture. Wire format: [`PROTOCOL-v0.1-DRAFT.md`](PROTOCOL-v0.1-DRAFT.md) (current) and [`PROTOCOL-v0.2-DRAFT.md`](PROTOCOL-v0.2-DRAFT.md) (the multi-modal **Signal** envelope — the platform keystone).
 
 ---
 
