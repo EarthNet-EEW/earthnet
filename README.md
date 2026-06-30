@@ -57,12 +57,12 @@ Built in this order — `earthnet-protocol` is the spine everything depends on:
 
 | Repo | What it is | Stack |
 |------|-----------|-------|
-| 🧬 [**earthnet-protocol**](https://github.com/devjamez/earthnet-protocol) | Signed event format, Ed25519 signing, the shared STA/LTA + band-pass detection core, taup travel-time tables | Rust · Protobuf |
-| 🖥️ [**earthnet-node**](https://github.com/devjamez/earthnet-node) | Ingest → fusion → windowed phase-association **consensus** → magnitude (calibrated GMPE) → async TimescaleDB persistence | Rust · axum · sqlx |
-| 📡 [**earthnet-relay**](https://github.com/devjamez/earthnet-relay) | Low-latency WebSocket fan-out of confirmed events to subscribers | Rust |
-| 📱 [**earthnet-mobile**](https://github.com/devjamez/earthnet-mobile) | Android app: on-device detection, S-wave countdown, expected intensity, multimodal alarm | Flutter · Dart · Rust (FRB) |
-| 🌐 [**earthnet-adapters**](https://github.com/devjamez/earthnet-adapters) | Country/network real-time ingestion: 284-station SeedLink registry, ObsPy detection, backtesting & GMPE calibration | Python · ObsPy |
-| 📊 [**earthnet-dashboard**](https://github.com/devjamez/earthnet-dashboard) | Network health: events, latency, reputation | Next.js · TypeScript |
+| 🧬 [**earthnet-protocol**](https://github.com/EarthNet-EEW/earthnet-protocol) | Signed event format, Ed25519 signing, the shared STA/LTA + band-pass detection core, taup travel-time tables | Rust · Protobuf |
+| 🖥️ [**earthnet-node**](https://github.com/EarthNet-EEW/earthnet-node) | Ingest → fusion → windowed phase-association **consensus** → magnitude (calibrated GMPE) → async TimescaleDB persistence | Rust · axum · sqlx |
+| 📡 [**earthnet-relay**](https://github.com/EarthNet-EEW/earthnet-relay) | Low-latency WebSocket fan-out of confirmed events to subscribers | Rust |
+| 📱 [**earthnet-mobile**](https://github.com/EarthNet-EEW/earthnet-mobile) | Android app: on-device detection, S-wave countdown, expected intensity, multimodal alarm | Flutter · Dart · Rust (FRB) |
+| 🌐 [**earthnet-adapters**](https://github.com/EarthNet-EEW/earthnet-adapters) | Country/network real-time ingestion: 284-station SeedLink registry, ObsPy detection, backtesting & GMPE calibration | Python · ObsPy |
+| 📊 [**earthnet-dashboard**](https://github.com/EarthNet-EEW/earthnet-dashboard) | Network health: events, latency, reputation | Next.js · TypeScript |
 | 📖 **earthnet** (this repo) | Project home: design, protocol draft, decisions | Docs |
 
 ---
@@ -93,21 +93,21 @@ See [`DESIGN.md`](DESIGN.md) for the full architecture and [`PROTOCOL-v0.1-DRAFT
 # 1) protocol is a git dependency of node/relay/mobile — nothing to do, it's public.
 
 # 2) node + TimescaleDB
-git clone https://github.com/devjamez/earthnet-node && cd earthnet-node
+git clone https://github.com/EarthNet-EEW/earthnet-node && cd earthnet-node
 docker compose up -d            # TimescaleDB
 cargo run                       # node on :8080
 
 # 3) relay
-git clone https://github.com/devjamez/earthnet-relay && cd earthnet-relay
+git clone https://github.com/EarthNet-EEW/earthnet-relay && cd earthnet-relay
 cargo run                       # relay on :8090
 
 # 4) feed real seismographs (Chile + more)
-git clone https://github.com/devjamez/earthnet-adapters && cd earthnet-adapters
+git clone https://github.com/EarthNet-EEW/earthnet-adapters && cd earthnet-adapters
 pip install -r requirements.txt
 python -m earthnet_adapter.network_adapter    # streams the 284-station registry
 
 # 5) the app
-git clone https://github.com/devjamez/earthnet-mobile && cd earthnet-mobile
+git clone https://github.com/EarthNet-EEW/earthnet-mobile && cd earthnet-mobile
 flutter run                     # point it at ws://<host>:8090/subscribe
 ```
 
