@@ -1,10 +1,23 @@
 # EarthNet Protocol v0.2 — Multi-modal Signal envelope (DRAFT / RFC)
 
-*Status: **draft**. This proposes the single most important change toward Planetary Intelligence:
-generalizing the earthquake-specific `Observation` into a **modality-agnostic, signed Signal
-envelope** — the "narrow waist" of the platform. See [`VISION.md`](VISION.md) and
-[`docs/ARCHITECTURE-REVIEW.md`](docs/ARCHITECTURE-REVIEW.md). v0.1 lives in
+*Status: **partially implemented (dual-stack)**. The envelope generalizes the earthquake-specific
+`Observation` into a **modality-agnostic, signed Signal** — the "narrow waist" of the platform. See
+[`VISION.md`](VISION.md) and [`docs/ARCHITECTURE-REVIEW.md`](docs/ARCHITECTURE-REVIEW.md); v0.1 in
 [`PROTOCOL-v0.1-DRAFT.md`](PROTOCOL-v0.1-DRAFT.md).*
+
+> **Implemented & verified (2026-06-30):**
+> - `protocol`: `Signal` + `SeismicPick` + `ModalityClass`/`DeviceClass`/`PrivacyLevel`,
+>   `DOMAIN_SIGNAL` signing, and `compat` conversions (`signal_from_observation` /
+>   `observation_from_signal`). Additive — v0.1 untouched, conformance green.
+> - `node`: **dual-stack** — `POST /signals` accepts a `Signal`; a `seismic.pick.v1` Signal is
+>   normalized into the *same* fusion pipeline as `/observations` (consensus unchanged); other
+>   modalities are accepted (research plane). `POST /observations` (v0.1) still works.
+> - **Cross-language verified end-to-end:** a Signal built + signed in **Python** → live Rust node
+>   `/signals` → 202 + fired a real ConfirmedEvent (byte-determinism holds).
+>
+> **Not yet:** producers emitting Signals by default (adapters/mobile still emit v0.1 under
+> dual-stack); the schema **registry** (schema_id is a fixed constant for now); `ConfirmedEvent`
+> v0.2 (`tier` + `NodeAttestation`); wiring `PrivacyLevel` into `Location`.
 
 ## 1. Why
 
