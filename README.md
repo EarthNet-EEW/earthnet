@@ -68,6 +68,7 @@ Built in this order — `earthnet-protocol` is the spine everything depends on:
 | 📱 [**earthnet-mobile**](https://github.com/EarthNet-EEW/earthnet-mobile) | Android app: on-device detection, S-wave countdown, expected intensity, multimodal alarm | Flutter · Dart · Rust (FRB) |
 | 🌐 [**earthnet-adapters**](https://github.com/EarthNet-EEW/earthnet-adapters) | Country/network real-time ingestion: 284-station SeedLink registry, ObsPy detection, backtesting & GMPE calibration | Python · ObsPy |
 | 📊 [**earthnet-dashboard**](https://github.com/EarthNet-EEW/earthnet-dashboard) | Network health: events, latency, reputation | Next.js · TypeScript |
+| 🧠 [**earthnet-knowledge**](https://github.com/EarthNet-EEW/earthnet-knowledge) | Research-plane Knowledge Agent: RAG over confirmed events (Ollama), off the alert hot-path | Python · Ollama |
 | 📖 **earthnet** (this repo) | Project home: design, protocol draft, decisions | Docs |
 
 ---
