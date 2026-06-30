@@ -1,5 +1,12 @@
 # EarthNet — Diseño (Etapas 1–6)
 
+> ⚠️ **Documento histórico** — captura el diseño del MVP de EEW (fase de diseño guiado). El MVP
+> ya está construido y funcionando. La **dirección actual** (plataforma abierta de inteligencia
+> geofísica / Planetary Intelligence) y la **arquitectura objetivo** viven en
+> [`VISION.md`](VISION.md), [`docs/ARCHITECTURE-REVIEW.md`](docs/ARCHITECTURE-REVIEW.md) y
+> [`PROTOCOL-v0.2-DRAFT.md`](PROTOCOL-v0.2-DRAFT.md). Leé esos primero; este documento se conserva
+> como registro del diseño original.
+
 > Documento de trabajo. Capturado durante el diseño guiado (proceso de 10 etapas). Etapas 1–6 cerradas;
 > 7–10 quedan pendientes (ver final). Lenguaje de trabajo: español; README público en inglés.
 
